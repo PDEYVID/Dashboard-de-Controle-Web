@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Controle</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><i class="material-icons">analytics</i> Dashboard</h1>
+            </div>
+            <nav class="menu">
+                <a href="#" class="menu-item active" data-page="dashboard">
+                    <i class="material-icons">dashboard</i> Dashboard
+                </a>
+                <a href="#" class="menu-item" data-page="relatorios">
+                    <i class="material-icons">assessment</i> Relatórios
+                </a>
+                <a href="#" class="menu-item" data-page="usuarios">
+                    <i class="material-icons">people</i> Usuários
+                </a>
+                <a href="#" class="menu-item" data-page="configuracoes">
+                    <i class="material-icons">settings</i> Configurações
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-title">
+                    <h2>Bem-vindo ao Dashboard</h2>
+                    <p>Gerencie seus dados em tempo real</p>
+                </div>
+                <div class="header-actions">
+                    <input type="search" placeholder="Buscar..." class="search-input">
+                    <button class="btn-notification"><i class="material-icons">notifications</i></button>
+                    <div class="user-profile">
+                        <i class="material-icons">account_circle</i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="content">
+                <!-- Dashboard Page -->
+                <div id="dashboard" class="page active">
+                    <!-- Stats Cards -->
+                    <section class="stats-grid">
+                        <div class="card stat-card">
+                            <div class="card-header">
+                                <h3>Total de Vendas</h3>
+                                <i class="material-icons">attach_money</i>
+                            </div>
+                            <div class="card-body">
+                                <div class="stat-value">R$ 45.230,00</div>
+                                <div class="stat-change positive">+12% este mês</div>
+                            </div>
+                        </div>
+
+                        <div class="card stat-card">
+                            <div class="card-header">
+                                <h3>Novos Clientes</h3>
+                                <i class="material-icons">person_add</i>
+                            </div>
+                            <div class="card-body">
+                                <div class="stat-value">156</div>
+                                <div class="stat-change positive">+8% este mês</div>
+                            </div>
+                        </div>
+
+                        <div class="card stat-card">
+                            <div class="card-header">
+                                <h3>Pedidos Processados</h3>
+                                <i class="material-icons">local_shipping</i>
+                            </div>
+                            <div class="card-body">
+                                <div class="stat-value">1.234</div>
+                                <div class="stat-change positive">+5% este mês</div>
+                            </div>
+                        </div>
+
+                        <div class="card stat-card">
+                            <div class="card-header">
+                                <h3>Taxa de Satisfação</h3>
+                                <i class="material-icons">star_rate</i>
+                            </div>
+                            <div class="card-body">
+                                <div class="stat-value">4.8/5.0</div>
+                                <div class="stat-change neutral">Excelente</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Charts Section -->
+                    <section class="charts-grid">
+                        <div class="card chart-card">
+                            <h3>Vendas Mensais</h3>
+                            <canvas id="vendas-chart"></canvas>
+                        </div>
+
+                        <div class="card chart-card">
+                            <h3>Distribuição de Clientes</h3>
+                            <canvas id="clientes-chart"></canvas>
+                        </div>
+                    </section>
+
+                    <!-- Recent Activity -->
+                    <section class="activity-section">
+                        <div class="card">
+                            <h3>Atividades Recentes</h3>
+                            <table class="activity-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="activity-type"><i class="material-icons">shopping_cart</i> Venda</td>
+                                        <td>Pedido #1001 - Cliente ABC</td>
+                                        <td>há 2 horas</td>
+                                        <td class="status success"><i class="material-icons">check_circle</i> Completo</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-type"><i class="material-icons">person_add</i> Cadastro</td>
+                                        <td>Novo usuário: João Silva</td>
+                                        <td>há 5 horas</td>
+                                        <td class="status success"><i class="material-icons">check_circle</i> Ativo</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="activity-type"><i class="material-icons">help</i> Suporte</td>
+                                        <td>Ticket #456 - Resolução pendente</td>
+                                        <td>há 1 dia</td>
+                                        <td class="status warning"><i class="material-icons">schedule</i> Pendente</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Relatórios Page -->
+                <div id="relatorios" class="page">
+                    <div class="card">
+                        <h3>Relatórios</h3>
+                        <p>Seção de relatórios em desenvolvimento...</p>
+                    </div>
+                </div>
+
+                <!-- Usuários Page -->
+                <div id="usuarios" class="page">
+                    <div class="card">
+                        <div class="usuarios-header">
+                            <h3><i class="material-icons">people</i>Gestão de Usuários</h3>
+                            <button class="btn-primary">
+                                <i class="material-icons">add</i> Novo Usuário
+                            </button>
+                        </div>
+                        <table class="users-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Cargo</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="user-avatar avatar-1">
+                                                <i class="material-icons">person</i>
+                                            </div>
+                                            <span>João Silva</span>
+                                        </div>
+                                    </td>
+                                    <td>joao@example.com</td>
+                                    <td>Administrador</td>
+                                    <td><span class="badge badge-success"><i class="material-icons">check_circle</i> Ativo</span></td>
+                                    <td>
+                                        <button class="btn-icon" title="Editar"><i class="material-icons">edit</i></button>
+                                        <button class="btn-icon" title="Deletar"><i class="material-icons">delete</i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="user-avatar avatar-2">
+                                                <i class="material-icons">person</i>
+                                            </div>
+                                            <span>Maria Santos</span>
+                                        </div>
+                                    </td>
+                                    <td>maria@example.com</td>
+                                    <td>Vendedor</td>
+                                    <td><span class="badge badge-success"><i class="material-icons">check_circle</i> Ativo</span></td>
+                                    <td>
+                                        <button class="btn-icon" title="Editar"><i class="material-icons">edit</i></button>
+                                        <button class="btn-icon" title="Deletar"><i class="material-icons">delete</i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="user-avatar avatar-3">
+                                                <i class="material-icons">person</i>
+                                            </div>
+                                            <span>Pedro Costa</span>
+                                        </div>
+                                    </td>
+                                    <td>pedro@example.com</td>
+                                    <td>Gerente</td>
+                                    <td><span class="badge badge-warning"><i class="material-icons">schedule</i> Inativo</span></td>
+                                    <td>
+                                        <button class="btn-icon" title="Editar"><i class="material-icons">edit</i></button>
+                                        <button class="btn-icon" title="Deletar"><i class="material-icons">delete</i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Configurações Page -->
+                <div id="configuracoes" class="page">
+                    <div class="card">
+                        <h3>Configurações</h3>
+                        <p>Seção de configurações em desenvolvimento...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="src/script.js"></script>
+</body>
+</html>
